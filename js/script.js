@@ -65,7 +65,6 @@ function onPlayerError(event) {
 // END
 
 function togglePlay() {
-    console.log('faggot');
     if(player.getPlayerState() === 1) {
         $('#floatingAction img').attr('src', 'img/play.png');
         player.pauseVideo();
