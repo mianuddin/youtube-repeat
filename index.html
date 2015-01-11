@@ -23,7 +23,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	</head>
     
-    <html>
+    <body>
         <header>
             <div class='container'>
                 <div class='row'>
@@ -37,7 +37,10 @@
         <div class='container'>
             <div class='row'>
                 <div id='videoWrapper'>
-                    <iframe frameborder='0' allowfullscreen></iframe>
+                    <div id='player'></div>
+                    <div id='floatingAction' onclick='togglePlay();'>
+                        <img src='img/pause.png'>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,6 +50,6 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="js/script.js"></script>
-    </html>
+    </body>
 
 </html>
