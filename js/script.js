@@ -19,6 +19,6 @@ $( document ).ready(function() {
         $('input[type=text]').attr('value', id);
         $('iframe').attr('src', link);
     } else {
-        $('iframe').hide();
+        $('#videoWrapper').hide();
     }
 });
