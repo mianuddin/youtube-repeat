@@ -15,6 +15,10 @@ function GetURLParameter(sParam)
 $( document ).ready(function() {
     var id = GetURLParameter('v');
     var link = '//www.youtube.com/embed/' + id + '?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1&loop=1&playlist=' + id;
-    $('input[type=text]').attr('value', id);
-    $('iframe').attr('src', link);
+    if(typeof id != 'undefined') {
+        $('input[type=text]').attr('value', id);
+        $('iframe').attr('src', link);
+    } else {
+        $('iframe').hide();
+    }
 });

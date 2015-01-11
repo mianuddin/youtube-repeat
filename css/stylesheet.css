@@ -1,6 +1,63 @@
 body {
-	background: #f9f9f9 !important;
+	background: #f1f1f1 !important;
+	color: #111;
 	font-family: Roboto, sans-serif !important;
 	font-weight: 400;
 	font-size: 14px;
+}
+
+header {
+	background: #F44336;
+}
+
+form {
+	text-align: center;
+}
+
+form input {
+	font-size: 16px !important;
+	padding: 8px;
+	margin: 16px 8px;
+	border: 0 solid #111;
+	font-weight: 700;
+	color: #fff;
+}
+
+form input[type=text] {
+	background: rgba(255, 255, 255, 0);
+	border-bottom: 3px solid #111;
+}
+
+form input[type=text]:focus {
+	border-bottom: 3px solid #00E676;
+	outline: none;
+}
+
+::-webkit-input-placeholder {
+	color: #ebebeb;
+}
+
+form input[type=submit] {
+	border-radius: 2px;
+	background: rgba(255, 255, 255, 0);
+	color: #fff;
+}
+
+form input[type=submit]:hover {
+	background: #1DE9B6;
+}
+
+#videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+#videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
