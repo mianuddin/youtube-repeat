@@ -34,4 +34,7 @@ $( document ).ready(function() {
     } else {
         $('#videoWrapper').hide();
     }
+    $("input[type='text']").on("click", function () {
+       $(this).select();
+    });
 });
