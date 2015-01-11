@@ -17,7 +17,6 @@ function parseId(input) {
         return undefined;
     } else {
         var decodedInput = decodeURIComponent(input);
-        console.log(decodedInput);
         if(decodedInput.indexOf('?v=') != -1) {
             return decodedInput.slice(decodedInput.indexOf('?v=')+3);
         }
@@ -35,19 +34,18 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {
+    var id = parseId(GetURLParameter('v'));
     player = new YT.Player('player', {
-        videoId: parseId(GetURLParameter('v')),
+        videoId: id,
+        playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'loop': 1, 'playlist': id },
         events: {
             'onReady': onPlayerReady,
             'onError': onPlayerError
         }
     });
-    var id = parseId(GetURLParameter('v'));
-    var link = '//www.youtube.com/embed/' + id + '?enablejsapi=1&modestbranding=1&fs=0&controls=0&showinfo=0&autoplay=1&loop=1&playlist=' + id;
     if(typeof id != 'undefined') {
         $('input[type=text]').attr('value', decodeURIComponent(GetURLParameter('v')));
         $('input[type=text]').attr('size', decodeURIComponent(GetURLParameter('v')).length);
-        $('iframe').attr('src', link);
     } else {
         $('#videoWrapper').hide();
     }
@@ -67,10 +65,11 @@ function onPlayerError(event) {
 // END
 
 function togglePlay() {
-    if(player.getPlayerState() === 1 || player.getPlayerState() === 0) {
+    console.log('faggot');
+    if(player.getPlayerState() === 1) {
         $('#floatingAction img').attr('src', 'img/play.png');
         player.pauseVideo();
-    } else if(player.getPlayerState() === 2 || player.getPlayerState() === 0) {
+    } else if(player.getPlayerState() === 2) {
         $('#floatingAction img').attr('src', 'img/pause.png');
         player.playVideo();
     }
